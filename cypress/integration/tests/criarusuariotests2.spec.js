@@ -1,4 +1,6 @@
 /// <reference types="cypress" />
+
+//Fabricio
 import Cadastro from '../../support/pages/CadastroPage';
 
 describe('hometests', () => {
