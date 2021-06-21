@@ -17,7 +17,8 @@ describe('hometests', () => {
 
   it('JornadaSucesso', () =>{
 
-    Login.login();
+    Login.loginUser();
+    Login.loginPassword();
     Login.clicarLogin();
     Login.clicarAddCartBackpack();
     Login.clicarAddCartBike();
@@ -32,6 +33,7 @@ describe('hometests', () => {
     Login.validarCompraSucesso();
     Login.validarCompraSucesso();
   })
+  
   
   
 

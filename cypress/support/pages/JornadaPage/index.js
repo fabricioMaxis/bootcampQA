@@ -6,7 +6,7 @@ const el = {
   tfLastName: '[data-test=lastName]',
   tfZipCode: '[data-test=postalCode]',  
   tfPassword: '[data-test=password]',
-  QtdItem:'.shopping_cart_badge',
+  
   
   
   //Botoes
@@ -28,6 +28,10 @@ txtInfoEnvio:'.summary_info > :nth-child(3)',
 txtTotalValor:'summary_total_label',
 txtSucesso:'.complete-header',
 txtEnvioSucesso:'.complete-text',
+QtdItem:'.shopping_cart_badge',
+txtError:'[data-test=error]',
+
+
 
 
 
@@ -38,10 +42,21 @@ txtEnvioSucesso:'.complete-text',
 //**********Ações**********
 class Login {
 
-login(){
+loginUser(){
+
   cy.get(el.tfNome).type('standard_user')
+  
+}
+loginPassword(){
+  
   cy.get(el.tfPassword).type('secret_sauce')
 
+}
+loginUserIncorreto(){
+
+  cy.get(el.tfNome).type('Fabricio')
+  cy.get(el.tfPassword).type('Maxis')
+  
 }
  clicarLogin(){
 
@@ -118,7 +133,11 @@ clicarContinue(){
 
   cy.get(el.txtEnvioSucesso);
  }
+ validarErrorMsg(message){
 
+  cy.get(el.txtError).should('have.text', message);
+ }
+ 
 
 }
 
