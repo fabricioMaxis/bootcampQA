@@ -22,6 +22,19 @@ const el = {
   btDetalhe:'#item_4_title_link > .inventory_item_name',
   btVoltarParaProdutos:'[data-test=back-to-products]',
   btContinueShopping:'[data-test=continue-shopping]',
+  btBackHome:'[data-test=back-to-products]',
+  btFiltroAZ:'.product_sort_container',
+  btFiltroZA:'.product_sort_container',
+  btFiltroLoHi:'.product_sort_container',
+  btFiltroHiLo:'.product_sort_container',
+  btMenu:'#react-burger-menu-btn',
+  btAllItems:'#inventory_sidebar_link',
+  btAbout:'#about_sidebar_link',
+  btLogout:'#logout_sidebar_link',
+  btReset:'#reset_sidebar_link',
+
+
+
   
 
 //textos
@@ -37,6 +50,27 @@ txtError:'[data-test=error]',
 txtDetalheInfoInvetorio:'.inventory_details_desc',
 txtDetalhePrecoInvetorio:'.inventory_details_price',
 txtTitle:'.title',
+txtAllItems:'#inventory_sidebar_link',
+txtAbout:'#about_sidebar_link',
+txtLogout:'#logout_sidebar_link',
+txtReset:'#reset_sidebar_link',
+
+
+//Verificar Rede Sociais
+
+verifTwitter:'.social_twitter > a',
+verifFace:'.social_facebook > a',
+verifLinkeDin:'.social_linkedin > a',
+
+
+element:".shopping_cart_badge",
+elementVerificar:'.cart.quanti',
+    
+//Urls
+
+sauceLabs:'https://saucelabs.com/',
+sauceHome:'https://www.saucedemo.com/',
+
 
 }
 
@@ -155,6 +189,90 @@ clicarContinue(){
  validarTitle(message){
    cy.get(el.txtTitle).should('have.text',message);
  }
+
+ clicarBackToHome(){
+  cy.get(el.btBackHome).click({force:true});
+ }
+
+ clicarFiltroAZ(){
+  cy.get(el.btFiltroAZ).select('az');
+ }
+
+ clicarFiltroZA(){
+  cy.get(el.btFiltroZA).select('za');
+ }
+
+ clicarFiltroLoHi(){
+  cy.get(el.btFiltroLoHi).select('lohi');
+ }
+
+ clicarFiltroHiLo(){
+  cy.get(el.btFiltroHiLo).select('hilo');
+ }
+
+ verficarTwitter(){
+  cy.get(el.verifTwitter).should('have.attr', 'href', 'https://twitter.com/saucelabs')
+ }
+
+ verficarFace(){
+  cy.get(el.verifFace).should('have.attr', 'href', 'https://www.facebook.com/saucelabs')
+ }
+
+ verficarLinkeDin(){
+  cy.get(el.verifLinkeDin).should('have.attr', 'href', 'https://www.linkedin.com/company/sauce-labs/')
+ }
+
+ clicarMenu(){
+  cy.get(el.btMenu).click({force:true});
+ }
+
+ clicarAllItems(){
+  cy.get(el.btAllItems).click({force:true});
+ }
+
+ clicarAbout(){
+  cy.get(el.btAbout).click({force:true});
+ }
+
+ clicarLogout(){
+  cy.get(el.btlo).click({force:true});
+ }
+
+ clicarReset(){
+  cy.get(el.btReset).click({force:true});
+ }
+
+ verifAllItems(){
+  cy.get(el.txtAllItems)
+ }
+
+ verifAbout(){
+  cy.get(el.txtAbout)
+ }
+verifLogout(){
+  cy.get(el.txtLogout)
+ }
+
+ verifReset(){
+  cy.get(el.txtReset)
+ }
+
+ urlSauceLabs(){
+  cy.url()
+  .should('be.equal', el.sauceLabs)
+ }
+ urlSauceHome(){
+  cy.url()
+  .should('be.equal', el.sauceHome)
+ }
+
+
+
+ //validarBadge(){  
+  //cy.get('el.element',{​​​​​​​​timeout: 5000}​​​​​​​​).should('not.exist');
+  
+// }
+ 
  
 
 }

@@ -3,7 +3,7 @@
 //Fabricio
 import Login from '../../support/pages/JornadaPage';
 
-describe('hometests', () => {
+describe('Produtos', () => {
   beforeEach(()=>{
     
     cy.visit('https://saucedemo.com');
@@ -53,6 +53,17 @@ describe('hometests', () => {
     Login.clicarContinueShopp();
     Login.clicarAddCartBackpack();
     Login.clicarCarrinhoButton();
+   
+  })
+  it.only('Teste de filtro', () =>{
+
+    Login.loginUser();
+    Login.loginPassword();
+    Login.clicarLogin();
+    Login.clicarFiltroZA();
+    Login.clicarFiltroAZ();
+    Login.clicarFiltroLoHi();
+    Login.clicarFiltroHiLo();
    
   })
 

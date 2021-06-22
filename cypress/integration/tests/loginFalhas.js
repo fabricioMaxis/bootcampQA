@@ -4,7 +4,7 @@
 
 import Login from '../../support/pages/JornadaPage';
 
-describe('hometests', () => {
+describe('Login com falhas', () => {
   beforeEach(()=>{
     
     cy.visit('https://saucedemo.com');
