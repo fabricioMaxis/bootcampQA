@@ -16,28 +16,28 @@ describe('Login com falhas', () => {
 
   })
 
-  it('LoginSemPreencherCampos', () =>{
+  it('Login Sem Preencher Campos', () =>{
  
     Login.clicarLogin();
     Login.validarErrorMsg(('Epic sadface: Username is required'));
  
   })
   
-  it('LoginSemPreencherPassword', () =>{
+  it('Login Sem Preencher Password', () =>{
 
     Login.loginUser();
     Login.clicarLogin();
     Login.validarErrorMsg('Epic sadface: Password is required');
  
   })
-  it('LoginSemPreencherUsuario', () =>{
+  it('Login Sem Preencher Usuario', () =>{
 
     Login.loginPassword();
     Login.clicarLogin();
     Login.validarErrorMsg('Epic sadface: Username is required')
  
   })
-  it('LoginUsuarioSemCadastro', () =>{
+  it('Login Usuario Sem Cadastro', () =>{
 
    Login.loginUserIncorreto();
     Login.clicarLogin();

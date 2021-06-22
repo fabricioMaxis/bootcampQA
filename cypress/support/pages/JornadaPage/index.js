@@ -1,13 +1,12 @@
 //**********Mapeamento de elementos**********
 const el = {
+
   //Campo de texto
   tfNome: '[data-test=username]', 
   tfFirstName: '[data-test=firstName]', 
   tfLastName: '[data-test=lastName]',
   tfZipCode: '[data-test=postalCode]',  
   tfPassword: '[data-test=password]',
-  
-  
   
   //Botoes
   btLogin:'[data-test=login-button]',
@@ -32,10 +31,6 @@ const el = {
   btAbout:'#about_sidebar_link',
   btLogout:'#logout_sidebar_link',
   btReset:'#reset_sidebar_link',
-
-
-
-  
 
 //textos
 txtBackpack:'#item_4_title_link > .inventory_item_name',
@@ -62,15 +57,14 @@ verifTwitter:'.social_twitter > a',
 verifFace:'.social_facebook > a',
 verifLinkeDin:'.social_linkedin > a',
 
-
-element:".shopping_cart_badge",
-elementVerificar:'.cart.quanti',
     
 //Urls
 
 sauceLabs:'https://saucelabs.com/',
 sauceHome:'https://www.saucedemo.com/',
 
+//Verifica se  elementos está no carrinho
+elementVerificar:'.cart_quantity',
 
 }
 
@@ -106,8 +100,8 @@ loginUserIncorreto(){
   cy.get(el.btCarrinho).click({force:true});
  }
 
- validarQtdItemCarrinho(){
-  cy.get(el.QtdItem);
+ validarQtdItemCarrinho(info){
+  cy.get(el.elementBadge,{timeout: 3000}).should(info);
  }
 
  validarItemBackpackNoCarrinho(){
@@ -210,6 +204,14 @@ clicarContinue(){
   cy.get(el.btFiltroHiLo).select('hilo');
  }
 
+ verficarCarrinho(info){
+  cy.get(el.elementVerificar,{timeout: 3000}).should(info);
+ }
+
+ verficarBadgeCarrinho(info){
+  cy.get(el.elementBadge,{timeout: 3000}).should(info);
+ }
+
  verficarTwitter(){
   cy.get(el.verifTwitter).should('have.attr', 'href', 'https://twitter.com/saucelabs')
  }
@@ -235,7 +237,7 @@ clicarContinue(){
  }
 
  clicarLogout(){
-  cy.get(el.btlo).click({force:true});
+  cy.get(el.btLogout).click({force:true});
  }
 
  clicarReset(){
@@ -265,16 +267,7 @@ verifLogout(){
   cy.url()
   .should('be.equal', el.sauceHome)
  }
-
-
-
- //validarBadge(){  
-  //cy.get('el.element',{​​​​​​​​timeout: 5000}​​​​​​​​).should('not.exist');
-  
-// }
  
- 
-
 }
 
 export default new Login();

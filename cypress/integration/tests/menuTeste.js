@@ -29,7 +29,7 @@ describe('Teste Menu', () => {
     
   })
 
-  it.only('Verificar Elemento Menu - About', () =>{
+  it('Verificar Elemento Menu - About', () =>{
 
     Login.loginUser();
     Login.loginPassword();
@@ -37,11 +37,43 @@ describe('Teste Menu', () => {
     Login.clicarMenu();
     Login.clicarAbout();
     Login.urlSauceLabs();
-   
- 
-    
     
   })
+
+  it('Verificar Elemento Menu - All Items', () =>{
+
+    Login.loginUser();
+    Login.loginPassword();
+    Login.clicarLogin();
+    Login.clicarMenu();
+    Login.clicarAbout();
+    Login.urlSauceLabs();
+    
+  })
+
+  it.only('Verificar Elemento Menu - Logout', () =>{
+
+    Login.loginUser();
+    Login.loginPassword();
+    Login.clicarLogin();
+    Login.clicarMenu();
+    Login.clicarLogout();
+    Login.urlSauceHome();
+    
+  })
+
+  it('Verificar Elemento Menu - Reset', () =>{
+
+    Login.loginUser();
+    Login.loginPassword();
+    Login.clicarLogin();
+    Login.clicarMenu();
+    Login.clicarAbout();
+    Login.urlSauceLabs();
+    
+  })
+
+  
     
     
 });

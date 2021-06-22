@@ -15,7 +15,7 @@ describe('Jornada com Sucesso', () => {
 
   })
 
-  it('JornadaSucesso', () =>{
+  it('Jornada Sucesso', () =>{
 
     Login.loginUser();
     Login.loginPassword();
@@ -23,7 +23,7 @@ describe('Jornada com Sucesso', () => {
     Login.validarTitle('Products');
     Login.clicarAddCartBackpack();
     Login.clicarAddCartBike();
-    Login.validarQtdItemCarrinho();
+    Login.validarQtdItemCarrinho('exist');
     Login.clicarCarrinhoButton();
     Login.validarTitle('Your Cart');
     Login.validarItemBackpackNoCarrinho();
