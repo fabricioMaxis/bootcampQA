@@ -20,7 +20,8 @@ describe('Login com falhas', () => {
   })
 
   it('Login Sem Preencher Campos', () =>{
- 
+    
+    CamposDeTextos.LimparCamposLogin();
     Buttons.clicarLogin();
     validarTextos.validarErrorMsg(CamposDeTextos.errorMessageUsername);
  
@@ -28,6 +29,7 @@ describe('Login com falhas', () => {
   
   it('Login Sem Preencher Password', () =>{
 
+    CamposDeTextos.LimparCamposLogin();
     CamposDeTextos.loginUser();
     Buttons.clicarLogin();
     validarTextos.validarErrorMsg(CamposDeTextos.errorMessagePassword);
@@ -35,6 +37,7 @@ describe('Login com falhas', () => {
   })
   it('Login Sem Preencher Usuario', () =>{
 
+    CamposDeTextos.LimparCamposLogin();
     CamposDeTextos.loginPassword();
     Buttons.clicarLogin();
     validarTextos.validarErrorMsg(CamposDeTextos.errorMessageUsername)
@@ -42,6 +45,7 @@ describe('Login com falhas', () => {
   })
   it('Login Usuario Sem Cadastro', () =>{
 
+    CamposDeTextos.LimparCamposLogin();
    CamposDeTextos.loginUserIncorreto();
    Buttons.clicarLogin();
     validarTextos.validarErrorMsg(CamposDeTextos.ErrorMessageEmptyFields);

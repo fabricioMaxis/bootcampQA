@@ -294,6 +294,11 @@ ErrorMessageFirstName(){
 ErrorMessagePostalCode(){
   return(el.txtErrorMessagePostalCode)
 }
+
+LimparCamposLogin(){
+  cy.get(el.tfNome).clear();
+  cy.get(el.tfPassword).clear();
+}
  
 }
 

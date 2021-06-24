@@ -20,6 +20,7 @@ describe('Jornada com Sucesso', () => {
 
   it('Jornada Sucesso', () =>{
 
+    CamposDeTextos.LimparCamposLogin();
     CamposDeTextos.loginUser();
     CamposDeTextos.loginPassword();
     Buttons.clicarLogin();
@@ -41,6 +42,7 @@ describe('Jornada com Sucesso', () => {
     validarTextos.validarTitle('Checkout: Complete!');
     validarTextos.validarCompraSucesso();
     validarTextos.validarCompraSucesso();
+    validarTextos.validarQtdItemCarrinho('not.exist');
     Buttons.clicarBackToHome();
     validarTextos.validarTitle('Products');
     
