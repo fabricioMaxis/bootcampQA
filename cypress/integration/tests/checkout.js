@@ -84,7 +84,7 @@ describe('Checkout', () => {
     
   })
 
-  it.only('Checkout fechar Mensagem de Error', () =>{
+  it('Checkout fechar Mensagem de Error', () =>{
 
     CamposDeTextos.loginUser();
     CamposDeTextos.loginPassword();
