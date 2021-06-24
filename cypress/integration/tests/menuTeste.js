@@ -1,7 +1,9 @@
 /// <reference types="cypress" />
 
 //Fabricio
-import Login from '../../support/pages/JornadaPage';
+import Buttons from '../../support/pages/buttons';
+import CamposDeTextos from '../../support/pages/CamposDeTextos';
+import Urls from '../../support/pages/urls';
 
 describe('Teste Menu', () => {
   beforeEach(()=>{
@@ -17,59 +19,59 @@ describe('Teste Menu', () => {
 
   it('Verificar Elementos Menu', () =>{
 
-    Login.loginUser();
-    Login.loginPassword();
-    Login.clicarLogin();
-    Login.clicarMenu();
-    Login.verifAllItems();
-    Login.verifAbout();
-    Login.verifLogout();
-    Login.verifReset();
+    CamposDeTextos.loginUser();
+    CamposDeTextos.loginPassword();
+    Buttons.clicarLogin();
+    Buttons.clicarMenu();
+    CamposDeTextos.verifAllItems();
+    CamposDeTextos.verifAbout();
+    CamposDeTextos.verifLogout();
+    CamposDeTextos.verifReset();
     
     
   })
 
   it('Verificar Elemento Menu - About', () =>{
 
-    Login.loginUser();
-    Login.loginPassword();
-    Login.clicarLogin();
-    Login.clicarMenu();
-    Login.clicarAbout();
-    Login.urlSauceLabs();
+    CamposDeTextos.loginUser();
+    CamposDeTextos.loginPassword();
+    Buttons.clicarLogin();
+    Buttons.clicarMenu();
+    Buttons.clicarAbout();
+    Urls.urlSauceLabs();
     
   })
 
   it('Verificar Elemento Menu - All Items', () =>{
 
-    Login.loginUser();
-    Login.loginPassword();
-    Login.clicarLogin();
-    Login.clicarMenu();
-    Login.clicarAbout();
-    Login.urlSauceLabs();
+    CamposDeTextos.loginUser();
+    CamposDeTextos.loginPassword();
+    Buttons.clicarLogin();
+    Buttons.clicarMenu();
+    Buttons.clicarAbout();
+    Urls.urlSauceLabs();
     
   })
 
-  it.only('Verificar Elemento Menu - Logout', () =>{
+  it('Verificar Elemento Menu - Logout', () =>{
 
-    Login.loginUser();
-    Login.loginPassword();
-    Login.clicarLogin();
-    Login.clicarMenu();
-    Login.clicarLogout();
-    Login.urlSauceHome();
+    CamposDeTextos.loginUser();
+    CamposDeTextos.loginPassword();
+    Buttons.clicarLogin();
+    Buttons.clicarMenu();
+    Buttons.clicarLogout();
+    Urls.urlSauceHome();
     
   })
 
   it('Verificar Elemento Menu - Reset', () =>{
 
-    Login.loginUser();
-    Login.loginPassword();
-    Login.clicarLogin();
-    Login.clicarMenu();
-    Login.clicarAbout();
-    Login.urlSauceLabs();
+    CamposDeTextos.loginUser();
+    CamposDeTextos.loginPassword();
+    Buttons.clicarLogin();
+    Buttons.clicarMenu();
+    Buttons.clicarAbout();
+    Urls.urlSauceLabs();
     
   })
 

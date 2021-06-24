@@ -1,7 +1,10 @@
 /// <reference types="cypress" />
 
 //Fabricio
-import Login from '../../support/pages/JornadaPage';
+import Buttons from '../../support/pages/buttons';
+import CamposDeTextos from '../../support/pages/CamposDeTextos';
+import Login from '../../support/pages/CamposDeTextos';
+import validarTextos from '../../support/pages/validarTextos';
 
 describe('Produtos', () => {
   beforeEach(()=>{
@@ -17,71 +20,71 @@ describe('Produtos', () => {
 
   it('Remover Produtos Carrinho', () =>{
 
-    Login.loginUser();
-    Login.loginPassword();
-    Login.clicarLogin();
-    Login.validarQtdItemCarrinho('not.exist');
-    Login.clicarAddCartBackpack();
-    Login.clicarAddCartBike();
-    Login.validarQtdItemCarrinho('exist');
-    Login.clicarRemoveBackpack();
-    Login.clicarRemoveBike();
-    Login.validarQtdItemCarrinho('not.exist');
+    CamposDeTextos.loginUser();
+    CamposDeTextos.loginPassword();
+    Buttons.clicarLogin();
+    validarTextos.validarQtdItemCarrinho('not.exist');
+    Buttons.clicarAddCartBackpack();
+    Buttons.clicarAddCartBike();
+    validarTextos.validarQtdItemCarrinho('exist');
+    Buttons.clicarRemoveBackpack();
+    Buttons.clicarRemoveBike();
+    validarTextos.validarQtdItemCarrinho('not.exist');
    
   })
   it('Visualizar Detalhe Produto', () =>{
 
-    Login.loginUser();
-    Login.loginPassword();
-    Login.clicarLogin();
-    Login.clicarAddCartBackpack();
-    Login.clicarDetalhe();
-    Login.validarDetalheInfo();
-    Login.validarDetalhePreco();
-    Login.clicarVoltarParaProdutos();
+    CamposDeTextos.loginUser();
+    CamposDeTextos.loginPassword();
+    Buttons.clicarLogin();
+    Buttons.clicarAddCartBackpack();
+    Buttons.clicarDetalhe();
+    validarTextos.validarDetalheInfo();
+    validarTextos.validarDetalhePreco();
+    Buttons.clicarVoltarParaProdutos();
     
    
   })
-  it.only('Adicionar Remover Tela YourCart', () =>{
+  it('Adicionar Remover Tela YourCart', () =>{
 
-    Login.loginUser();
-    Login.loginPassword();
-    Login.clicarLogin();
-    Login.clicarAddCartBackpack();
-    Login.clicarCarrinhoButton();
-    Login.validarTitle('Your Cart'); 
-    Login.verficarCarrinho('exist');  //já verifica se os produtos estão sendo listado no carrinho
-    Login.clicarRemoveBackpack();
-    Login.verficarCarrinho('not.exist');
-    Login.clicarContinueShopp();
-    Login.clicarAddCartBackpack();
-    Login.clicarCarrinhoButton();
-    Login.verficarCarrinho('exist');  
+    CamposDeTextos.loginUser();
+    CamposDeTextos.loginPassword();
+    Buttons.clicarLogin();
+    Buttons.clicarAddCartBackpack();
+    Buttons.clicarCarrinhoButton();
+    validarTextos.validarTitle('Your Cart'); 
+    validarTextos.verficarCarrinho('exist');  //já verifica se os produtos estão sendo listado no carrinho
+    Buttons.clicarRemoveBackpack();
+    validarTextos.verficarCarrinho('not.exist');
+    Buttons.clicarContinueShopp();
+    Buttons.clicarAddCartBackpack();
+    Buttons.clicarCarrinhoButton();
+    validarTextos.verficarCarrinho('exist');  
    
   })
   it('Teste De Filtro', () =>{
 
-    Login.loginUser();
-    Login.loginPassword();
-    Login.clicarLogin();
-    Login.clicarFiltroZA();
-    Login.clicarFiltroAZ();
-    Login.clicarFiltroLoHi();
-    Login.clicarFiltroHiLo();
+    CamposDeTextos.loginUser();
+    CamposDeTextos.loginPassword();
+    Buttons.clicarLogin();
+    Buttons.clicarFiltroZA();
+    Buttons.clicarFiltroAZ();
+    Buttons.clicarFiltroLoHi();
+    Buttons.clicarFiltroHiLo();
    
   })
 
   it('Verificar se produto é removido da listagem do carrinho', () =>{
 
-    Login.loginUser();
-    Login.loginPassword();
-    Login.clicarLogin();
-    Login.clicarAddCartBackpack();
-    Login.clicarAddCartBike(); 
-    Login.clicarRemoveBackpack();
-    Login.clicarRemoveBike();
-    Login.clicarCarrinhoButton(); 
-    Login.verficarCarrinho('not.exist');
+    CamposDeTextos.loginUser();
+    CamposDeTextos.loginPassword();
+    Buttons.clicarLogin();
+    Buttons.clicarAddCartBackpack();
+    Buttons.clicarAddCartBike(); 
+    Buttons.clicarRemoveBackpack();
+    Buttons.clicarRemoveBike();
+    Buttons.clicarCarrinhoButton(); 
+    validarTextos.verficarCarrinho('not.exist');
     
    
   })

@@ -2,7 +2,10 @@
 
 //Fabricio
 
-import Login from '../../support/pages/JornadaPage';
+import Buttons from '../../support/pages/buttons';
+import CamposDeTextos from '../../support/pages/CamposDeTextos';
+import Login from '../../support/pages/CamposDeTextos';
+import validarTextos from '../../support/pages/validarTextos';
 
 describe('Login com falhas', () => {
   beforeEach(()=>{
@@ -18,30 +21,30 @@ describe('Login com falhas', () => {
 
   it('Login Sem Preencher Campos', () =>{
  
-    Login.clicarLogin();
-    Login.validarErrorMsg(('Epic sadface: Username is required'));
+    Buttons.clicarLogin();
+    validarTextos.validarErrorMsg(CamposDeTextos.errorMessageUsername);
  
   })
   
   it('Login Sem Preencher Password', () =>{
 
-    Login.loginUser();
-    Login.clicarLogin();
-    Login.validarErrorMsg('Epic sadface: Password is required');
+    CamposDeTextos.loginUser();
+    Buttons.clicarLogin();
+    validarTextos.validarErrorMsg(CamposDeTextos.errorMessagePassword);
  
   })
   it('Login Sem Preencher Usuario', () =>{
 
-    Login.loginPassword();
-    Login.clicarLogin();
-    Login.validarErrorMsg('Epic sadface: Username is required')
+    CamposDeTextos.loginPassword();
+    Buttons.clicarLogin();
+    validarTextos.validarErrorMsg(CamposDeTextos.errorMessageUsername)
  
   })
   it('Login Usuario Sem Cadastro', () =>{
 
-   Login.loginUserIncorreto();
-    Login.clicarLogin();
-    Login.validarErrorMsg('Epic sadface: Username and password do not match any user in this service');
+   CamposDeTextos.loginUserIncorreto();
+   Buttons.clicarLogin();
+    validarTextos.validarErrorMsg(CamposDeTextos.ErrorMessageEmptyFields);
  
   })
   

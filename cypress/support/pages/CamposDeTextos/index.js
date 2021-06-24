@@ -31,6 +31,7 @@ const el = {
   btAbout:'#about_sidebar_link',
   btLogout:'#logout_sidebar_link',
   btReset:'#reset_sidebar_link',
+  btError:'.error-button',
 
 //textos
 txtBackpack:'#item_4_title_link > .inventory_item_name',
@@ -49,27 +50,23 @@ txtAllItems:'#inventory_sidebar_link',
 txtAbout:'#about_sidebar_link',
 txtLogout:'#logout_sidebar_link',
 txtReset:'#reset_sidebar_link',
+txtErrorMessageUsername:'Epic sadface: Username is required',
+txtErrorMessagePassword:'Epic sadface: Password is required',
+txtErrorMessageEmptyFields:'Epic sadface: Username and password do not match any user in this service',
+txtErrorMessageFirstName:'Error: First Name is required',
+txtErrorMessageLastName:'Error: Last Name is required',
+txtErrorMessagePostalCode:'Error: Postal Code is required',
 
 
-//Verificar Rede Sociais
 
-verifTwitter:'.social_twitter > a',
-verifFace:'.social_facebook > a',
-verifLinkeDin:'.social_linkedin > a',
-
-    
-//Urls
-
-sauceLabs:'https://saucelabs.com/',
-sauceHome:'https://www.saucedemo.com/',
-
+/*
 //Verifica se  elementos está no carrinho
-elementVerificar:'.cart_quantity',
+elementVerificar:'.cart_quantity',*/
 
 }
 
 //**********Ações**********
-class Login {
+class CamposTexto {
 
 loginUser(){
   cy.get(el.tfNome).type('standard_user')
@@ -88,6 +85,11 @@ loginUserIncorreto(){
   cy.get(el.btLogin).click({force:true});
  }
 
+ clicarError(){
+  cy.get(el.btError).click({force:true});
+ }
+
+
  clicarAddCartBackpack(){
   cy.get(el.btAddCartBackpack).click({force:true});
  }
@@ -101,7 +103,7 @@ loginUserIncorreto(){
  }
 
  validarQtdItemCarrinho(info){
-  cy.get(el.elementBadge,{timeout: 3000}).should(info);
+  cy.get(el.QtdItem,{timeout: 3000}).should(info);
  }
 
  validarItemBackpackNoCarrinho(){
@@ -116,10 +118,17 @@ loginUserIncorreto(){
   cy.get(el.btCheckout).click({force:true});
  }
 
- checkoutForms(){
-  cy.get(el.tfFirstName).type('Maxis')
-  cy.get(el.tfLastName).type('Crow')
-  cy.get(el.tfZipCode).type('33400000')
+ checkoutFormsName(info){
+  cy.get(el.tfFirstName).type(info)
+}
+
+checkoutFormsLastName(info){
+  cy.get(el.tfLastName).type(info)
+
+}
+
+checkoutFormsZipCode(info){
+  cy.get(el.tfZipCode).type(info)
 }
 
 clicarContinue(){
@@ -151,7 +160,7 @@ clicarContinue(){
  }
 
  validarErrorMsg(message){
-  cy.get(el.txtError).should('have.text', message);
+  cy.get(el.txtError).should('have.text', message());
  }
 
  clicarRemoveBackpack(){
@@ -267,7 +276,25 @@ verifLogout(){
   cy.url()
   .should('be.equal', el.sauceHome)
  }
+ errorMessageUsername(){
+   return(el.txtErrorMessageUsername)
+ }
+ errorMessagePassword(){
+  return(el.txtErrorMessagePassword)
+}
+ErrorMessageEmptyFields(){
+  return(el.txtErrorMessageEmptyFields)
+}
+ErrorMessageLastName(){
+  return(el.txtErrorMessageLastName)
+}
+ErrorMessageFirstName(){
+  return(el.txtErrorMessageFirstName)
+}
+ErrorMessagePostalCode(){
+  return(el.txtErrorMessagePostalCode)
+}
  
 }
 
-export default new Login();
+export default new CamposTexto();

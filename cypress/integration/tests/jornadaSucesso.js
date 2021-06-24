@@ -1,7 +1,10 @@
 /// <reference types="cypress" />
 
 //Fabricio
-import Login from '../../support/pages/JornadaPage';
+import Buttons from '../../support/pages/buttons';
+import CamposDeTextos from '../../support/pages/CamposDeTextos';
+import Login from '../../support/pages/CamposDeTextos';
+import validarTextos from '../../support/pages/validarTextos';
 
 describe('Jornada com Sucesso', () => {
   beforeEach(()=>{
@@ -17,27 +20,29 @@ describe('Jornada com Sucesso', () => {
 
   it('Jornada Sucesso', () =>{
 
-    Login.loginUser();
-    Login.loginPassword();
-    Login.clicarLogin();
-    Login.validarTitle('Products');
-    Login.clicarAddCartBackpack();
-    Login.clicarAddCartBike();
-    Login.validarQtdItemCarrinho('exist');
-    Login.clicarCarrinhoButton();
-    Login.validarTitle('Your Cart');
-    Login.validarItemBackpackNoCarrinho();
-    Login.validarItemBikeNoCarrinho();
-    Login.clicarCheckoutButton();
-    Login.validarTitle('Checkout: Your Information');
-    Login.checkoutForms();
-    Login.clicarContinue();
-    Login.clicarFinalizar();
-    Login.validarTitle('Checkout: Complete!');
-    Login.validarCompraSucesso();
-    Login.validarCompraSucesso();
-    Login.clicarBackToHome();
-    Login.validarTitle('Products');
+    CamposDeTextos.loginUser();
+    CamposDeTextos.loginPassword();
+    Buttons.clicarLogin();
+    validarTextos.validarTitle('Products');
+    Buttons.clicarAddCartBackpack();
+    Buttons.clicarAddCartBike();
+    validarTextos.validarQtdItemCarrinho('exist');
+    Buttons.clicarCarrinhoButton();
+    validarTextos.validarTitle('Your Cart');
+    validarTextos.validarItemBackpackNoCarrinho();
+    validarTextos.validarItemBikeNoCarrinho();
+    Buttons.clicarCheckoutButton();
+    validarTextos.validarTitle('Checkout: Your Information');
+    CamposDeTextos.checkoutFormsName('Maxis');
+    CamposDeTextos.checkoutFormsLastName('Crow');
+    CamposDeTextos.checkoutFormsZipCode('33400000');
+    Buttons.clicarContinue();
+    Buttons.clicarFinalizar();
+    validarTextos.validarTitle('Checkout: Complete!');
+    validarTextos.validarCompraSucesso();
+    validarTextos.validarCompraSucesso();
+    Buttons.clicarBackToHome();
+    validarTextos.validarTitle('Products');
     
   })
     

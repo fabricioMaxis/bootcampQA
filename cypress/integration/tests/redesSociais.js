@@ -1,7 +1,10 @@
 /// <reference types="cypress" />
 
 //Fabricio
-import Login from '../../support/pages/JornadaPage';
+import Buttons from '../../support/pages/buttons';
+import CamposDeTextos from '../../support/pages/CamposDeTextos';
+import redeSocial from '../../support/pages/redeSocial';
+import validarTextos from '../../support/pages/validarTextos';
 
 describe('Redes Sociais', () => {
   beforeEach(()=>{
@@ -17,26 +20,26 @@ describe('Redes Sociais', () => {
 
   it('Twiiter', () =>{
 
-    Login.loginUser();
-    Login.loginPassword();
-    Login.clicarLogin();
-    Login.verficarTwitter();
+    CamposDeTextos.loginUser();
+    CamposDeTextos.loginPassword();
+    Buttons.clicarLogin();
+    redeSocial.verficarTwitter();
 
   })
   it('Facebook', () =>{
 
-    Login.loginUser();
-    Login.loginPassword();
-    Login.clicarLogin();
-    Login.verficarFace();
+    CamposDeTextos.loginUser();
+    CamposDeTextos.loginPassword();
+    Buttons.clicarLogin();
+    redeSocial.verficarFace();
 
   })
   it('LinkeDin', () =>{
 
-    Login.loginUser();
-    Login.loginPassword();
-    Login.clicarLogin();
-    Login.verficarLinkeDin();
+    CamposDeTextos.loginUser();
+    CamposDeTextos.loginPassword();
+    Buttons.clicarLogin();
+    redeSocial.verficarLinkeDin();
 
   })
 
