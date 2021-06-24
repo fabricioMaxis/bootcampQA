@@ -24,7 +24,7 @@ describe('Checkout', () => {
     CamposDeTextos.loginPassword();
     Buttons.clicarLogin();
     validarTextos.validarTitle('Products');
-    validarTextos.clicarAddCartBackpack();
+    Buttons.clicarAddCartBackpack();
     Buttons.clicarAddCartBike();
     validarTextos.validarQtdItemCarrinho('exist');
     Buttons.clicarCarrinhoButton();
